@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article Details</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <h1 class="tac">Article Details</h1>
+  <div class="container">
+    <ul class="article-details flex wrap">
+        <li>
+          <h2>Title: <%= article.title %></h2>
+          <h3>Description: <%= article.description %></h3>
+          <h4>Tags: <%= article.tags %></h4>
+          <h5>Author: <%= article.author %></h5>
+          <p>Likes: <%= article.likes %></p>
+          <button>👍 Like</button>
+          <button>👎 Dislike</button>
+          <a href="/articles/<%= article._id %>/edit">
+            <button>Edit Article</button>
+          </a>
+          <a href="/articles/<%= article._id %>/delete">
+            <button>Delete Article</button>
+          </a>
+          <a href="/articles">
+            <button>All Articles</button>
+          </a>
+        </li>
+    </ul>
+  </div>
+</body>
+</html>
