@@ -6,7 +6,7 @@ let articleSchema = new Schema({
   description: String,
   tags: [String],
   author: String,
-  likes: Number
+  likes: {type: Number, default: 0}
 }, {timestamps: true})
 
 let Article = mongoose.model('Article', articleSchema)

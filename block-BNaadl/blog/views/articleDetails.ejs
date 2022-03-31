@@ -14,11 +14,15 @@
         <li>
           <h2>Title: <%= article.title %></h2>
           <h3>Description: <%= article.description %></h3>
-          <h4>Tags: <%= article.tags %></h4>
+          <h4>Tags: <% article.tags.forEach(tag => { %>
+              <span><%= tag %></span>
+              <% }) %>
+          </h4>
           <h5>Author: <%= article.author %></h5>
           <p>Likes: <%= article.likes %></p>
-          <button>👍 Like</button>
-          <button>👎 Dislike</button>
+          <a href="/articles/<%= article._id %>/likes">
+            <button>👍 Like</button>
+          </a>
           <a href="/articles/<%= article._id %>/edit">
             <button>Edit Article</button>
           </a>
