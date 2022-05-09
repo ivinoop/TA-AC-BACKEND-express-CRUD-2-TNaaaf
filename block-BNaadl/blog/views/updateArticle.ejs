@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Article</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <h1 class="tac">Update Article</h1>
+  <div class="container">
+    <div class="tac">
+      <a href="/articles">
+        <button>All Articles</button>
+      </a>
+      <a href="/">
+        <button>Back To Home</button>
+      </a>
+    </div>
+    <form action="/articles/<%= article._id %>" method="POST">
+      <label for="title">Title</label>
+      <input type="text" name="title" value="<%= article.title %>">
+      <label for="description">Description</label>
+      <textarea name="description" rows="5">
+        <%= article.description %>
+      </textarea>
+      <label for="tags">Tags</label>
+      <input type="text" name="tags" value="<%= article.tags %>">
+      <label for="author">Author</label>
+      <input type="text" name="author" value="<%= article.author %>">
+      <input type="submit" value="Update Article">
+    </form>
+  </div>
+</body>
+</html>
