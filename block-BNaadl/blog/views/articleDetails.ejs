@@ -34,6 +34,32 @@
           </a>
         </li>
     </ul>
-  </div>
+    <div class="article-comments flex aifs">
+      <div class="all-comments">
+        <h3>Comments: </h3>
+        <div class="comment-box">
+          <% article.comments.forEach(comment => { %>
+            <span><%= comment.author %></span>
+            <p><%= comment.content %></p>
+            <div class="comment-btns">
+              <a href="/comments/<%= comment.id %>/edit">
+                <button>Edit</button>
+              </a>
+              <a href="/comments/<%= comment.id %>/delete">
+                <button>Delete</button>
+              </a>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+      <div class="add-comment-form">
+        <form action="/articles/<%= article.id %>/comments" method="POST">
+          <input type="text" name="author" placeholder="name..">
+          <textarea name="content" rows="2" placeholder="add comment.."></textarea>
+          <input type="submit" value="Add Comment">
+        </form>
+      </div>
+    </div>
+  </div> 
 </body>
 </html>

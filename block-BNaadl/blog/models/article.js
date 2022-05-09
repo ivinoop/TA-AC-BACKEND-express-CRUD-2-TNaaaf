@@ -6,7 +6,11 @@ let articleSchema = new Schema({
   description: String,
   tags: [String],
   author: String,
-  likes: {type: Number, default: 0}
+  likes: {type: Number, default: 0},
+  comments: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Comment'
+  }]
 }, {timestamps: true})
 
 let Article = mongoose.model('Article', articleSchema)

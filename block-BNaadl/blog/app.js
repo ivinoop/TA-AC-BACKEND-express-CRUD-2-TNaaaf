@@ -9,10 +9,11 @@ mongoose.connect('mongodb://localhost/blog', (err) => {
   console.log(err ? err : 'Connected to database');
 })
 
-var indexRouter = require('./routes/index');
-var articlesRouter = require('./routes/articles');
+const indexRouter = require('./routes/index');
+const articlesRouter = require('./routes/articles');
+const commentsRouter = require('./routes/comments');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/articles', articlesRouter);
+app.use('/comments', commentsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
