@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Article = require('../models/article')
+const Comment = require('../models/comment')
 
 // Fetch all articles
 router.get('/', (req, res, next) => {
@@ -18,10 +19,18 @@ router.get('/new', (req, res) => {
 // Fetch single article details
 router.get('/:id', (req, res, next) => {
   let id = req.params.id
-  Article.findById(id, (err, article) => {
-    if(err) return next(err)
-    res.render('articleDetails', {article: article})
-  })
+  // Article.findById(id, (err, article) => {
+  //   if(err) return next(err)
+  //   res.render('articleDetails', {article: article})
+  // })
+  Article
+    .findById(id)
+    .populate('comments')
+    .exec((err, article) => {
+      if(err) return next(err)
+      console.log(article);
+      res.render('articleDetails', {article})
+    })
 })
 
 // Fetch article details in form to update
@@ -67,7 +76,24 @@ router.get('/:id/delete', (req, res, next) => {
   let id = req.params.id
   Article.findByIdAndDelete(id, (err, article) => {
     if(err) return next(err)
-    res.redirect('/articles')
+    Comment.remove({articleId: article.id}, (err) => {
+      if(err) return next(err)
+      res.redirect('/articles')
+    })
+  })
+})
+
+// Capture comment data
+router.post('/:articleId/comments', (req, res, next) => {
+  let articleId = req.params.articleId
+  console.log(req.body);
+  req.body.articleId = articleId
+  Comment.create(req.body, (err, comment) => {
+    if(err) return next(err)
+    Article.findByIdAndUpdate(articleId, {$push: {comments: comment.id}}, (err, article) => {
+      if(err) return next(err)
+      res.redirect('/articles/' + articleId)
+    })
   })
 })
 

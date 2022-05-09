@@ -81,6 +81,14 @@ html {
   align-items: center;
 }
 
+.aifs {
+  align-items: flex-start;
+}
+
+.column {
+  flex-direction: column;
+}
+
 .tac {
   text-align: center;
 }
@@ -118,4 +126,37 @@ form input, form textarea {
 
 label {
   margin: 0.6rem 0;
+}
+
+.article-comments {
+  margin: 4rem 0;
+}
+
+.add-comment-form form {
+  margin: 0;
+  width: 200px; 
+}
+
+.all-comments {
+  width: 600px;
+  border: 1px solid lightgray;
+  border-radius: 0.8rem;
+  padding: 1rem;
+  margin: 0 1rem 1rem 0;
+}
+
+.all-comments h3 {
+  font-size: 1.8rem;
+}
+
+.comment-box {
+  margin: 2rem 0;
+}
+
+.comment-box span {
+  color: teal;
+}
+
+.comment-btns {
+  margin-bottom: 2rem;
 }
