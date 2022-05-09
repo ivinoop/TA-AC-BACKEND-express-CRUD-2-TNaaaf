@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article Details</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <h1 class="tac">Article Details</h1>
+  <div class="container">
+    <ul class="article-details flex wrap">
+        <li>
+          <h2>Title: <%= article.title %></h2>
+          <h3>Description: <%= article.description %></h3>
+          <h4>Tags: <% article.tags.forEach(tag => { %>
+              <span><%= tag %></span>
+              <% }) %>
+          </h4>
+          <h5>Author: <%= article.author %></h5>
+          <p>Likes: <%= article.likes %></p>
+          <a href="/articles/<%= article._id %>/likes">
+            <button>👍 Like</button>
+          </a>
+          <a href="/articles/<%= article._id %>/edit">
+            <button>Edit Article</button>
+          </a>
+          <a href="/articles/<%= article._id %>/delete">
+            <button>Delete Article</button>
+          </a>
+          <a href="/articles">
+            <button>All Articles</button>
+          </a>
+        </li>
+    </ul>
+    <div class="article-comments flex aifs">
+      <div class="all-comments">
+        <h3>Comments: </h3>
+        <div class="comment-box">
+          <% article.comments.forEach(comment => { %>
+            <span><%= comment.author %></span>
+            <p><%= comment.content %></p>
+            <div class="comment-btns">
+              <a href="/comments/<%= comment.id %>/edit">
+                <button>Edit</button>
+              </a>
+              <a href="/comments/<%= comment.id %>/delete">
+                <button>Delete</button>
+              </a>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+      <div class="add-comment-form">
+        <form action="/articles/<%= article.id %>/comments" method="POST">
+          <input type="text" name="author" placeholder="name..">
+          <textarea name="content" rows="2" placeholder="add comment.."></textarea>
+          <input type="submit" value="Add Comment">
+        </form>
+      </div>
+    </div>
+  </div> 
+</body>
+</html>
