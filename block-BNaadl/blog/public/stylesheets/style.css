@@ -1,0 +1,162 @@
+/* Resets */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* General */
+
+html {
+  font-size: 16px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.jcc {
+  justify-content: center;
+}
+
+.aic {
+  align-items: center;
+}
+
+.aifs {
+  align-items: flex-start;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.tac {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Custom */
+
+h1 {
+  font-size: 2rem;
+  padding: 2rem 0;
+}
+
+.all-articles li {
+  width: 200px;
+  padding: 2rem;
+  border: 1px solid darkgray;
+  border-radius: 0.6rem;
+  margin: 1rem;
+}
+
+form {
+  margin: 4rem auto;
+  width: 600px;
+}
+
+form input, form textarea {
+  display: block;
+  width: 100%;
+  padding:0.8rem;
+  margin-bottom: 1rem;
+}
+
+label {
+  margin: 0.6rem 0;
+}
+
+.article-comments {
+  margin: 4rem 0;
+}
+
+.add-comment-form form {
+  margin: 0;
+  width: 200px; 
+}
+
+.all-comments {
+  width: 600px;
+  border: 1px solid lightgray;
+  border-radius: 0.8rem;
+  padding: 1rem;
+  margin: 0 1rem 1rem 0;
+}
+
+.all-comments h3 {
+  font-size: 1.8rem;
+}
+
+.comment-box {
+  margin: 2rem 0;
+}
+
+.comment-box span {
+  color: teal;
+}
+
+.comment-btns {
+  margin-bottom: 2rem;
+}
